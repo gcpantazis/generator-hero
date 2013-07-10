@@ -1,0 +1,5 @@
+@import "../../../common/css/_base/variables";
+@import "../../../common/css/_base/mixins";
+
+.<%= _.dasherize(moduleName) %> {
+}

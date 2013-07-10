@@ -1,0 +1,7 @@
+include ../../../common/html/jade-helpers.jade
++includeCSS('<%= _.dasherize(moduleName) %>')
++includeJavascriptModule('<%= _.dasherize(moduleName) %>')
+
+div.<%= _.dasherize(moduleName) %>
+
+  | This is the <%= _.titleize(_.humanize(moduleName)) %> module!
