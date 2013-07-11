@@ -1,0 +1,26 @@
+include jade-helpers.jade
+include meta.html
+
+l = {"locals": locals}
+
+  link(rel="stylesheet", href="css/styles.css")
+
+  <!--[if (gt IE 9)|!(IE)]><!-->
+  link(rel="stylesheet", href="css/responsive.css")
+  <!--<![endif]-->
+
+  +defineBlock('modulescss')
+
+  <!--[if (gt IE 9)|!(IE)]><!-->
+  link(rel="stylesheet", href="css/responsive-modules.css")
+  <!--<![endif]-->
+
+  //if lt IE 9
+    for name in locals.polyfills()
+      sr = "js/libs/polyfill/" + name
+      script(src = sr)
+
+  //if lt IE 8
+    for name in locals.polyfillsie7()
+      sr = "js/libs/polyfill-lte-ie7/" + name
+      script(src = sr)

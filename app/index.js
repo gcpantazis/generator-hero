@@ -31,4 +31,16 @@ HeroGenerator.prototype.app = function app() {
 HeroGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
+  this.copy('gitignore', '.gitignore');
+};
+
+HeroGenerator.prototype.commonfiles = function commonfiles() {
+
+  this.mkdir('app/common');
+
+  this.copy('common/html/head.jade', 'app/common/html/head.jade')
+  this.copy('common/html/foot.jade', 'app/common/html/foot.jade')
+  this.copy('common/html/ie-conditionals.html', 'app/common/html/ie-conditionals.html')
+  this.copy('common/html/jade-helpers.jade', 'app/common/html/jade-helpers.jade')
+  this.copy('common/html/meta.html', 'app/common/html/meta.html')
 };

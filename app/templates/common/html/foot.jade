@@ -1,0 +1,28 @@
+
+script(src="js/libs/require.js")
+
+l = {"locals": locals}
+
+- for ( i in locals.javascriptModules )
+  - locals.javascriptModules[i] = 'modules/' + locals.javascriptModules[i] + '/index'
+
+if ( locals.getEnvironments() == 'debug' )
+  script
+    window.isDebugMode = true;
+
+script
+
+  require(["js/common"], function () {
+    require(["require/index"], function(){
+      require(!{JSON.stringify(l.locals.javascriptModules)});
+    });
+  });
+
+if locals.modulescss
+  +appendBlock('modulescss')
+    for name in locals.modulescss
+      hrf = "css/modules/" + name + ".css"
+      link(rel="stylesheet", href= hrf)
+
+- delete locals.modulescss
+- delete locals.javascriptModules
