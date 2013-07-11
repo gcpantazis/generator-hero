@@ -1,5 +1,4 @@
 # Generator-hero
-[![Build Status](https://secure.travis-ci.org/gcpantazis/generator-hero.png?branch=master)](https://travis-ci.org/gcpantazis/generator-hero)
 
 A generator for Yeoman.
 
@@ -8,6 +7,8 @@ A generator for Yeoman.
     `npm install -g yo`
 - Install the generator: `npm install -g generator-hero`
 - Run: `yo hero`
+- Make a module: `yo hero:module`
+- Make a component: `yo hero:component`
 
 ## License
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
