@@ -5,7 +5,7 @@
 // * **Version:** 0.1
 // * **Author:** <%= authorName %>
 //
-// Description
+// <%= moduleSummary %>
 
 define(function(require){
 
@@ -29,7 +29,7 @@ define(function(require){
 
     self.init();
 
-    log('SONY : <%= _.classify(moduleName) %> : Initialized');
+    log('<%= _.classify(moduleName) %> : Initialized');
   };
 
   <%= _.classify(moduleName) %>.prototype = {

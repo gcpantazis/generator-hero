@@ -29,6 +29,8 @@ HeroGenerator.prototype.app = function app() {
 };
 
 HeroGenerator.prototype.projectfiles = function projectfiles() {
+
+  this.copy('Gruntfile.js', 'Gruntfile.js');
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
   this.copy('gitignore', '.gitignore');
@@ -43,4 +45,6 @@ HeroGenerator.prototype.commonfiles = function commonfiles() {
   this.copy('common/html/ie-conditionals.html', 'app/common/html/ie-conditionals.html')
   this.copy('common/html/jade-helpers.jade', 'app/common/html/jade-helpers.jade')
   this.copy('common/html/meta.html', 'app/common/html/meta.html')
+
+  this.copy('common/js/_index.js', 'app/common/js/secondary/index.js')
 };

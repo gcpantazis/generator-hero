@@ -25,12 +25,17 @@ ModuleGenerator.prototype.askFor = function askFor() {
     {
       name: 'authorName',
       message: 'Who\'s the author?'
+    },
+    {
+      name: 'moduleSummary',
+      message: 'Briefly summarize what this module is.'
     }
   ];
 
   this.prompt(prompts, function (props) {
 
     this.authorName = props.authorName;
+    this.moduleSummary = props.moduleSummary;
     this.moduleName = props.moduleName;
     this.moduleName = this.moduleName.substring(0, 1).toLowerCase() + this.moduleName.substring(1);
     this.className = this.moduleName.substring(0, 1).toLowerCase() + this.moduleName.substring(1);
@@ -49,6 +54,10 @@ ModuleGenerator.prototype.app = function app() {
   this.mkdir('app/modules/' + _.dasherize(this.moduleName) + '/img');
   this.mkdir('app/modules/' + _.dasherize(this.moduleName) + '/demo');
 
+  // README
+
+  this.template('_README.md', 'app/modules/' + _.dasherize(this.moduleName) + '/README.md');
+
   // Javascript
 
   this.template('_index.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/index.js');
@@ -62,4 +71,6 @@ ModuleGenerator.prototype.app = function app() {
   // Jade
 
   this.template('_module-layout.jade', 'app/modules/' + _.dasherize(this.moduleName) + '/html/' + _.dasherize(this.moduleName) + '.jade');
+  this.template('_module-demo.jade', 'app/modules/' + _.dasherize(this.moduleName) + '/demo/' + _.dasherize(this.moduleName) + '-demo.jade');
+  this.template('_module-data.json', 'app/modules/' + _.dasherize(this.moduleName) + '/demo/data/' + _.dasherize(this.moduleName) + '.json');
 };
