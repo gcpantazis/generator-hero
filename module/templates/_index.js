@@ -1,11 +1,13 @@
 
+// <%= _.titleize(_.humanize(moduleName)) %> (<%= _.classify(moduleName) %>) Module Index
+// -----------------------------------------
+
 define(function(require){
 
   var <%= _.classify(moduleName) %> = require('modules/<%= _.dasherize(moduleName) %>/<%= _.dasherize(moduleName) %>');
 
-  <%= _.classify(moduleName) %>.init();
+  var $elements = $('.<%= _.dasherize(moduleName) %>');
 
-  return {
-    <%= _.classify(moduleName) %>: <%= _.classify(moduleName) %>
-  };
+  new <%= _.classify(moduleName) %>($elements);
+
 });

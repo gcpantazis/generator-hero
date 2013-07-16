@@ -13,23 +13,27 @@ define(function(require){
 
   var $ = require('jquery');
 
-  var module = {
-    'init': function() {
-      $('.<%= _.dasherize(moduleName) %>').each(function(){
-        new <%= _.classify(moduleName) %>(this);
-      });
-    }
-  };
-
   var <%= _.classify(moduleName) %> = function(element){
 
-    var self = this;
+    var self = this,
+        instances = [];
 
     self.$el = $(element);
+
+    if ( self.$el.length === 0 ) {
+      return null;
+    } else if ( self.$el.length > 1 ) {
+      self.$el.each(function(){
+        instances.push(new <%= _.classify(moduleName) %>(this));
+      });
+      return instances;
+    }
 
     self.init();
 
     log('<%= _.classify(moduleName) %> : Initialized');
+
+    return self;
   };
 
   <%= _.classify(moduleName) %>.prototype = {
@@ -42,9 +46,10 @@ define(function(require){
 
       // Get Going!
 
+      return self;
     }
   };
 
-  return module;
+  return <%= _.classify(moduleName) %>;
 
 });

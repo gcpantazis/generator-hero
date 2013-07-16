@@ -47,4 +47,5 @@ HeroGenerator.prototype.commonfiles = function commonfiles() {
   this.copy('common/html/meta.html', 'app/common/html/meta.html')
 
   this.copy('common/js/_index.js', 'app/common/js/secondary/index.js')
+  this.copy('common/js/_components-spec-index.js', 'app/common/js/secondary/specs/index.js')
 };

@@ -48,7 +48,9 @@ ComponentGenerator.prototype.askFor = function askFor() {
 ComponentGenerator.prototype.app = function app() {
 
   this.template('_module.js', 'app/common/js/secondary/' + _.dasherize(this.componentName) + '.js');
+  this.template('spec/_spec.js', 'app/common/js/secondary/specs/' + _.dasherize(this.componentName) + '/spec.js');
   addScriptToIndex(this.componentName);
+  addScriptToSpecIndex(this.componentName);
 };
 
 var addScriptToIndex = function (componentName) {
@@ -60,11 +62,29 @@ var addScriptToIndex = function (componentName) {
       file: fullPath,
       needle: '// END: YEOMAN',
       splicable: [
-        'components.'+componentName+' = require(\'secondary/'+_.dasherize(componentName)+'\');'
+        'components.'+_.classify(componentName)+' = require(\'secondary/'+_.dasherize(componentName)+'\');'
       ]
     });
   } catch (e) {
     console.log(e);
     console.log('\nUnable to find '.yellow + 'app/common/js/secondary/index.js');
+  }
+};
+
+var addScriptToSpecIndex = function (componentName) {
+  try {
+
+    var fullPath = path.join('app', 'common/js/secondary/specs/index.js');
+
+    Rewriter.rewriteFile({
+      file: fullPath,
+      needle: '// END: YEOMAN',
+      splicable: [
+        'specs.'+_.classify(componentName)+' = require(\'secondary/specs/'+_.dasherize(componentName)+'/spec\');'
+      ]
+    });
+  } catch (e) {
+    console.log(e);
+    console.log('\nUnable to find '.yellow + 'app/common/js/secondary/specs/index.js');
   }
 };

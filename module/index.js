@@ -62,6 +62,8 @@ ModuleGenerator.prototype.app = function app() {
 
   this.template('_index.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/index.js');
   this.template('_module.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/' + _.dasherize(this.moduleName) + '.js');
+  this.template('spec/_index.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/index.js');
+  this.template('spec/_main.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/' + _.dasherize(this.moduleName) + '.js');
 
   // SCSS
 

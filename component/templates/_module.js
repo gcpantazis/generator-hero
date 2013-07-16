@@ -13,23 +13,16 @@ define(function(require){
 
   var $ = require('jquery');
 
-  var module = {
-    'init': function() {
-      $('.<%= _.dasherize(componentName) %>').each(function(){
-        new <%= _.classify(componentName) %>(this);
-      });
-    }
-  };
-
   var <%= _.classify(componentName) %> = function(element){
 
     var self = this;
 
     self.$el = $(element);
-
     self.init();
 
     log('<%= _.classify(componentName) %> : Initialized');
+
+    return self;
   };
 
   <%= _.classify(componentName) %>.prototype = {
@@ -42,9 +35,10 @@ define(function(require){
 
       // Get Going!
 
+      return self;
     }
   };
 
-  return component;
+  return <%= _.classify(componentName) %>;
 
 });

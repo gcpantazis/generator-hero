@@ -1,11 +1,11 @@
 
 define(function (require) {
 
-  var components = {};
+  var specs = {};
 
   // START: YEOMAN
   // END: YEOMAN
 
-  return components;
+  return specs;
 
 });
