@@ -1,3 +1,3 @@
 {
-  "id": "<%= _.dasherize(moduleName) %>",
+  "id": "<%= _.dasherize(moduleName) %>"
 }

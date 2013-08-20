@@ -1,0 +1,28 @@
+!!! 5
+html
+  head
+    meta(charset='utf-8')
+    title QUnit
+    link(rel='stylesheet', href='resources/qunit.css')
+  body
+
+  #qunit
+
+  #fixtures
+    // START: FIXTURES
+    // END: FIXTURES
+
+  script(src='resources/qunit.js')
+  script(src='js/libs/require.js')
+
+  script
+    require(["js/common"], function () {
+      require(["require/index"], function(){
+        require([
+          // START: SPECS
+          // END: SPECS
+        ], function(){
+          // Run Specs?
+        });
+      });
+    });

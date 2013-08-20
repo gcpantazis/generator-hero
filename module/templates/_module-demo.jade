@@ -12,7 +12,7 @@ body
   .container
     h4= '<%= _.titleize(_.humanize(moduleName)) %>'
 
-  +partial('<%= _.dasherize(moduleName) %>/html/<%= _.dasherize(moduleName) %>.jade', 'packages/modules/<%= _.dasherize(moduleName) %>/demo/data/<%= _.dasherize(moduleName) %>.json')
+  !{renderSingle('app/modules/<%= _.dasherize(moduleName) %>/html/<%= _.dasherize(moduleName) %>.jade', 'app/modules/<%= _.dasherize(moduleName) %>/demo/data/<%= _.dasherize(moduleName) %>.json')}
 
   include ../../../common/html/foot.jade
 </html>

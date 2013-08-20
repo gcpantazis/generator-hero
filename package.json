@@ -1,7 +1,7 @@
 {
   "name": "generator-hero",
   "version": "0.0.0",
-  "description": "A generator for Yeoman",
+  "description": "I can be `yo hero` baby.",
   "keywords": [
     "yeoman-generator"
   ],

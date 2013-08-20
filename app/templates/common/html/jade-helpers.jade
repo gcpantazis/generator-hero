@@ -1,0 +1,16 @@
+
+mixin includeCSS(moduleName)
+  e = {"locals": locals}
+  if (!e.locals.modulescss)
+    - e.locals.modulescss = []
+  if(e.locals.modulescss)
+    if (e.locals.modulescss.indexOf(moduleName) == -1)
+      - e.locals.modulescss.push(moduleName)
+
+mixin includeJavascriptModule(moduleName)
+  e = {"locals":locals}
+  if ( !e.locals.javascriptModules )
+    - e.locals.javascriptModules = []
+  if ( e.locals.javascriptModules )
+    if ( e.locals.javascriptModules.indexOf(moduleName) == -1 )
+      - e.locals.javascriptModules.push(moduleName)

@@ -34,6 +34,9 @@ HeroGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
   this.copy('gitignore', '.gitignore');
+
+  this.mkdir('grunt-helpers');
+  this.directory('grunt-helpers', './grunt-helpers');
 };
 
 HeroGenerator.prototype.commonfiles = function commonfiles() {
@@ -48,4 +51,12 @@ HeroGenerator.prototype.commonfiles = function commonfiles() {
 
   this.copy('common/js/_index.js', 'app/common/js/secondary/index.js')
   this.copy('common/js/_components-spec-index.js', 'app/common/js/secondary/specs/index.js')
+};
+
+HeroGenerator.prototype.testingFrameworks = function testingFrameworks() {
+
+  this.mkdir('app/tests');
+
+  this.directory('mocha', 'app/tests/mocha');
+  this.directory('qunit', 'app/tests/qunit');
 };

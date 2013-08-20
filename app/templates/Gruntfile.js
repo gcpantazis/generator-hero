@@ -3,33 +3,7 @@
 module.exports = function (grunt) {
 
   var jadeconfig = {
-
-    pretty: true,
-
-    data: {
-
-      render: function (templatePath, dataObj) {
-        return require('grunt-contrib-jade/node_modules/jade').compile(grunt.file.read(templatePath), {
-          filename: templatePath,
-          pretty: true
-        })(dataObj);
-      },
-
-      getData: function (path) {
-        return grunt.file.readJSON(path);
-      },
-
-      locals: {
-
-        data: function (path) {
-          return jadeconfig.data.getData(path);
-        },
-
-        partial: function (templatePath, dataObj) {
-          return jadeconfig.data.render(templatePath, dataObj);
-        }
-      }
-    }
+    data: require('./grunt-helpers/jade-helpers')()
   };
 
   // Project configuration.
@@ -46,24 +20,12 @@ module.exports = function (grunt) {
     },
 
     jade: {
-      common: {
-        options: jadeconfig,
-        files: [
-          {
-            expand: true,
-            cwd: 'src/pages',
-            src: ['**/*.jade'],
-            dest: 'build/',
-            ext: '.html'
-          }
-        ]
-      },
       modules: {
         options: jadeconfig,
         files: [
           {
             expand: true,
-            cwd: 'src/modules',
+            cwd: 'app/modules',
             src: ['**/demo/**/*-demo.jade'],
             dest: 'build/demos/',
             ext: '.html',

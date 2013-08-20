@@ -1,6 +1,8 @@
 'use strict';
 
 var util = require('util');
+var path = require('path');
+var Rewriter = require('../utilities/rewrite');
 var yeoman = require('yeoman-generator');
 var _  = require('underscore');
 
@@ -75,4 +77,35 @@ ModuleGenerator.prototype.app = function app() {
   this.template('_module-layout.jade', 'app/modules/' + _.dasherize(this.moduleName) + '/html/' + _.dasherize(this.moduleName) + '.jade');
   this.template('_module-demo.jade', 'app/modules/' + _.dasherize(this.moduleName) + '/demo/' + _.dasherize(this.moduleName) + '-demo.jade');
   this.template('_module-data.json', 'app/modules/' + _.dasherize(this.moduleName) + '/demo/data/' + _.dasherize(this.moduleName) + '.json');
+
+  addModuleToTests(this.moduleName, 'mocha');
+  addModuleToTests(this.moduleName, 'qunit');
 };
+
+var addModuleToTests = function (moduleName, whichTestFramework) {
+  try {
+
+    var fullPath = path.join('app', 'tests/'+whichTestFramework+'/index.jade');
+
+    Rewriter.rewriteFile({
+      file: fullPath,
+      needle: '// END: FIXTURES',
+      splicable: [
+        '+partial(\'' + _.dasherize(moduleName) + '/html/' + _.dasherize(moduleName) + '.jade\', \'packages/modules/' + _.dasherize(moduleName) + '/demo/data/' + _.dasherize(moduleName) + '.json\')'
+      ]
+    });
+
+    Rewriter.rewriteFile({
+      file: fullPath,
+      needle: '// END: SPECS',
+      splicable: [
+        '"modules/' + _.dasherize(moduleName) + '/specs/'+whichTestFramework+'/index"'
+      ]
+    });
+
+  } catch (e) {
+    console.log(e);
+    console.log('\nUnable to find '.yellow + pathToTestIndex);
+  }
+};
+
