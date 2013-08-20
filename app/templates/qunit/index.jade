@@ -13,11 +13,11 @@ html
     // END: FIXTURES
 
   script(src='resources/qunit.js')
-  script(src='js/libs/require.js')
+  script(src='../../bower_components/requirejs/require.js')
 
-  script
-    require(["js/common"], function () {
-      require(["require/index"], function(){
+  script.
+    require(["../../common/js/common.js"], function () {
+      require(["secondary/index"], function(){
         require([
           // START: SPECS
           // END: SPECS

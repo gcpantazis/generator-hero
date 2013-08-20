@@ -49,6 +49,7 @@ HeroGenerator.prototype.commonfiles = function commonfiles() {
   this.copy('common/html/jade-helpers.jade', 'app/common/html/jade-helpers.jade')
   this.copy('common/html/meta.html', 'app/common/html/meta.html')
 
+  this.copy('common/js/common.js', 'app/common/js/common.js')
   this.copy('common/js/_index.js', 'app/common/js/secondary/index.js')
   this.copy('common/js/_components-spec-index.js', 'app/common/js/secondary/specs/index.js')
 };

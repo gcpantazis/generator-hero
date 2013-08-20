@@ -64,8 +64,12 @@ ModuleGenerator.prototype.app = function app() {
 
   this.template('_index.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/index.js');
   this.template('_module.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/' + _.dasherize(this.moduleName) + '.js');
-  this.template('spec/_index.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/index.js');
-  this.template('spec/_main.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/' + _.dasherize(this.moduleName) + '.js');
+
+  this.template('spec/_index.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/mocha/index.js');
+  this.template('spec/_main-mocha.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/mocha/' + _.dasherize(this.moduleName) + '.js');
+
+  this.template('spec/_index.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/qunit/index.js');
+  this.template('spec/_main-qunit.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/qunit/' + _.dasherize(this.moduleName) + '.js');
 
   // SCSS
 
@@ -91,7 +95,7 @@ var addModuleToTests = function (moduleName, whichTestFramework) {
       file: fullPath,
       needle: '// END: FIXTURES',
       splicable: [
-        '+partial(\'' + _.dasherize(moduleName) + '/html/' + _.dasherize(moduleName) + '.jade\', \'packages/modules/' + _.dasherize(moduleName) + '/demo/data/' + _.dasherize(moduleName) + '.json\')'
+        '!{renderSingle(\'app/modules/' + _.dasherize(moduleName) + '/html/' + _.dasherize(moduleName) + '.jade\', \'app/modules/' + _.dasherize(moduleName) + '/demo/data/' + _.dasherize(moduleName) + '.json\')}'
       ]
     });
 
@@ -99,7 +103,7 @@ var addModuleToTests = function (moduleName, whichTestFramework) {
       file: fullPath,
       needle: '// END: SPECS',
       splicable: [
-        '"modules/' + _.dasherize(moduleName) + '/specs/'+whichTestFramework+'/index"'
+        '"app/modules/' + _.dasherize(moduleName) + '/js/specs/'+whichTestFramework+'/index"'
       ]
     });
 

@@ -1,10 +1,9 @@
 'use strict';
 
-module.exports = function (grunt) {
+var jadeHelpers = require('./grunt-helpers/jade-helpers'),
+  unitTestHelpers = require('./grunt-helpers/unit-testing');
 
-  var jadeconfig = {
-    data: require('./grunt-helpers/jade-helpers')()
-  };
+module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
@@ -21,25 +20,59 @@ module.exports = function (grunt) {
 
     jade: {
       modules: {
-        options: jadeconfig,
-        files: [
-          {
-            expand: true,
-            cwd: 'app/modules',
-            src: ['**/demo/**/*-demo.jade'],
-            dest: 'build/demos/',
-            ext: '.html',
-            flatten: true
-          }
-        ]
+        options: {
+          pretty: true,
+          data: jadeHelpers()
+        },
+        files: [{
+          expand: true,
+          cwd: 'app/modules',
+          src: ['**/demo/**/*-demo.jade'],
+          dest: 'build/demos/',
+          ext: '.html',
+          flatten: true
+        }]
+      },
+      tests: {
+        options: {
+          pretty: true,
+          data: unitTestHelpers.jadeHelpers()
+        },
+        files: [{
+          expand: true,
+          cwd: 'app/tests',
+          src: ['**/index.jade'],
+          dest: 'build/tests/',
+          ext: '.html',
+          flatten: false
+        }]
       }
     },
 
     copy: {
-      commonDebug: {
-        files: [
-          {expand: true, cwd: 'src/common/rootfiles/', src: ['**', '!README.*'], dest: 'build'}
-        ]
+      common: {
+        files: [{
+          expand: true,
+          cwd: 'app/',
+          src: ['**/*.js', '**/*.css'],
+          dest: 'build/'
+        }]
+      },
+      unitTests: {
+        files: [{
+          expand: true,
+          cwd: 'app/tests/',
+          src: ['**', '!**/*.jade'],
+          dest: 'build/tests/'
+        }]
+      },
+      bower: {
+        files: [{
+          expand: true,
+          cwd: 'bower_components/',
+          src: ['**'],
+          dest: 'build/bower_components/'
+        }]
       }
     },
 
