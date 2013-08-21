@@ -126,6 +126,8 @@ ModuleGenerator.prototype.app = function app() {
 
 var addMethodToModule = function(moduleName, methodName, description) {
 
+  // Create Method in a module.
+
   try {
 
     moduleName = moduleName.substring(0, 1).toLowerCase() + moduleName.substring(1);
@@ -152,9 +154,7 @@ var addMethodToModule = function(moduleName, methodName, description) {
     console.log('\nUnable to find '.yellow + methodName);
   }
 
-
-
-
+  // Create Mocha Test
 
   try {
 
@@ -183,15 +183,7 @@ var addMethodToModule = function(moduleName, methodName, description) {
     console.log('\nUnable to find '.yellow + methodName);
   }
 
-
-
-
-
-
-
-
-
-
+  // Create qUnit Test.
 
   try {
 

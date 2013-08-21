@@ -1,6 +1,6 @@
 # generator-hero
 
-This generator is meant to be a starting point for constructing your project's own generators, and covers technical issues like Jade helper methods for wiring complex systems, data insertion (see `module` or `component` index files), and FE unit test integration.
+This generator isn't necessarily meant to be *used* so much as it's meant to prove out various concepts that we'd want to splice into our own project-specific generators. It covers technical issues like Jade helper methods for wiring complex systems, data insertion (see `module` or `component` index files), and FE unit test integration.
 
 I have it set to generate both **qUnit** and **Mocha** specs, for the sake of test-driving. 
 
