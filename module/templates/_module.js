@@ -31,7 +31,7 @@ define(function(require){
 
     self.init();
 
-    log('<%= _.classify(moduleName) %> : Initialized');
+    console.log('<%= _.classify(moduleName) %> : Initialized');
 
     return self;
   };
@@ -47,7 +47,9 @@ define(function(require){
       // Get Going!
 
       return self;
-    }
+    },
+
+    // END: METHODS
   };
 
   return <%= _.classify(moduleName) %>;

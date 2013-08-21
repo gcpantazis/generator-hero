@@ -4,14 +4,14 @@ if state.modulescss
     hrf = "css/modules/" + name + ".css"
     link(rel="stylesheet", href= hrf)
 
-script(src="js/libs/require.js")
+script(src='/bower_components/requirejs/require.js')
 
 - for ( i in state.javascriptModules )
-  - state.javascriptModules[i] = 'modules/' + state.javascriptModules[i] + '/index'
+  - state.javascriptModules[i] = '/js/modules/' + state.javascriptModules[i] + '/index.js'
 
 script.
-  require(["js/common"], function () {
-    require(["require/index"], function(){
+  require(["/js/common.js"], function () {
+    require(["secondary/index"], function(){
       require(!{JSON.stringify(state.javascriptModules)});
     });
   });
