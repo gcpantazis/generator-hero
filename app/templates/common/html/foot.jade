@@ -1,25 +1,22 @@
 
+if state.modulescss
+  for name in state.modulescss
+    hrf = "css/modules/" + name + ".css"
+    link(rel="stylesheet", href= hrf)
+
 script(src="js/libs/require.js")
 
-l = {"locals": locals}
-
-- for ( i in locals.javascriptModules )
-  - locals.javascriptModules[i] = 'modules/' + locals.javascriptModules[i] + '/index'
+- for ( i in state.javascriptModules )
+  - state.javascriptModules[i] = 'modules/' + state.javascriptModules[i] + '/index'
 
 script.
   require(["js/common"], function () {
     require(["require/index"], function(){
-      require(!{JSON.stringify(l.locals.javascriptModules)});
+      require(!{JSON.stringify(state.javascriptModules)});
     });
   });
 
-if locals.modulescss
-  +appendBlock('modulescss')
-    for name in locals.modulescss
-      hrf = "css/modules/" + name + ".css"
-      link(rel="stylesheet", href= hrf)
-
-- delete locals.modulescss
-- delete locals.javascriptModules
+- delete state.modulescss
+- delete state.javascriptModules
 
 </html>

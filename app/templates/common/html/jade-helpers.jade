@@ -1,16 +1,27 @@
 
+blocks = {};
+
+mixin defineBlock(name)
+  block
+  len = buf.length;
+  - buf.push('');
+  - blocks[name] = len;
+
+mixin appendBlock(name)
+  start = buf.length;
+  block
+  - buf[blocks[name]] += buf.splice(start, buf.length - start).join('');
+
 mixin includeCSS(moduleName)
-  e = {"locals": locals}
-  if (!e.locals.modulescss)
-    - e.locals.modulescss = []
-  if(e.locals.modulescss)
-    if (e.locals.modulescss.indexOf(moduleName) == -1)
-      - e.locals.modulescss.push(moduleName)
+  if (!state.modulescss)
+    - state.modulescss = []
+  if(state.modulescss)
+    if (state.modulescss.indexOf(moduleName) == -1)
+      - state.modulescss.push(moduleName)
 
 mixin includeJavascriptModule(moduleName)
-  e = {"locals":locals}
-  if ( !e.locals.javascriptModules )
-    - e.locals.javascriptModules = []
-  if ( e.locals.javascriptModules )
-    if ( e.locals.javascriptModules.indexOf(moduleName) == -1 )
-      - e.locals.javascriptModules.push(moduleName)
+  if ( !state.javascriptModules )
+    - state.javascriptModules = []
+  if ( state.javascriptModules )
+    if ( state.javascriptModules.indexOf(moduleName) == -1 )
+      - state.javascriptModules.push(moduleName)

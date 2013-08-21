@@ -3,7 +3,7 @@
 var fs = require('fs'),
   _ = require('underscore');
 
-var jadeHelpers = require('./grunt-helpers/jade-helpers'),
+var jadeHelpers = require('./grunt-helpers/jade-helpers')(),
   unitTestHelpers = require('./grunt-helpers/unit-testing');
 
 module.exports = function (grunt) {
@@ -25,7 +25,7 @@ module.exports = function (grunt) {
       modules: {
         options: {
           pretty: true,
-          data: jadeHelpers()
+          data: jadeHelpers
         },
         files: [{
           expand: true,

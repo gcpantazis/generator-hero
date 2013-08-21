@@ -12,6 +12,14 @@ module.exports = function() {
 
     state: {},
 
+    setState: function(key, value) {
+      self.state[key] = value;
+    },
+
+    getState: function(key) {
+      return self.state[key];
+    },
+
     // Grabs a model of a provided `module` with a given `id`.
 
     getData: function(path) {
