@@ -1,6 +1,8 @@
-# Generator-hero
+# generator-hero
 
-A generator for Yeoman.
+This generator is meant to be a starting point for constructing your project's own generators, and covers technical issues like Jade helper methods for wiring complex systems, data insertion (see `module` or `component` index files), and FE unit test integration.
+
+I have it set to generate both **qUnit** and **Mocha** specs, for the sake of test-driving. 
 
 ## Getting started
 - Make sure you have [yo](https://github.com/yeoman/yo) installed:
