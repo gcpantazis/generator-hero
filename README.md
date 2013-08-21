@@ -9,9 +9,9 @@ A generator for Yeoman.
 - Run: `yo hero`
 - Make a module: `yo hero:module`
 	- Select `New Module`:
-		> ![image](http://d.pr/i/HM6i.jpg) 
+	> ![image](http://d.pr/i/HM6i.jpg) 
 	- Fill out the details: 
-		> ![image](http://d.pr/i/pKjc.jpg) 
+	> ![image](http://d.pr/i/pKjc.jpg) 
 	- Be filled with joy, your module is stubbed out and ready to go.
 - Build the app with `grunt`
 
@@ -20,9 +20,9 @@ A generator for Yeoman.
 This generator can stub out methods, and make the basic tests to go with them for mocha and qUnit. Wow!
 
 - Run `yo hero:module` again. This time select `Add Method`:
-	> ![image](http://d.pr/i/HtZY.jpg) 
+> ![image](http://d.pr/i/HtZY.jpg) 
 - Fill out the method's basic information:
-	> ![image](http://d.pr/i/bblp.jpg)
+> ![image](http://d.pr/i/bblp.jpg)
 
 You not only created the method, you created mocha/qUnit specs to go along with it! Run `grunt` again to see this in action in the test runner:
 > ![image](http://d.pr/i/kp9V.jpg)
