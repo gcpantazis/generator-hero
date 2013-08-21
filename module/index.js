@@ -65,11 +65,11 @@ ModuleGenerator.prototype.app = function app() {
   this.template('_index.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/index.js');
   this.template('_module.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/' + _.dasherize(this.moduleName) + '.js');
 
-  this.template('spec/_index.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/mocha/index.js');
-  this.template('spec/_main-mocha.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/mocha/' + _.dasherize(this.moduleName) + '.js');
+  this.template('spec/_index-mocha.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/mocha/index.js');
+  this.template('spec/_main-mocha.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/mocha/main.js');
 
-  this.template('spec/_index.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/qunit/index.js');
-  this.template('spec/_main-qunit.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/qunit/' + _.dasherize(this.moduleName) + '.js');
+  this.template('spec/_index-qunit.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/qunit/index.js');
+  this.template('spec/_main-qunit.js', 'app/modules/' + _.dasherize(this.moduleName) + '/js/specs/qunit/main.js');
 
   // SCSS
 

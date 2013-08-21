@@ -9,7 +9,7 @@ module.exports = function(){
     return '';
   };
 
-  var getTestableModules = function () {
+  var getTestableModules = function (framework) {
 
     var moduleDir = fs.readdirSync('app/modules'),
       modules = [];
@@ -18,7 +18,7 @@ module.exports = function(){
       var stat = fs.statSync('app/modules/' + module);
 
       if (stat.isDirectory()) {
-        modules.push('modules/' + module + '/index');
+        modules.push('modules/' + module + '/specs/' + framework + '/index');
       }
     })
 

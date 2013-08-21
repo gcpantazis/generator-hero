@@ -17,7 +17,7 @@ html
   script.
     require(["/js/common.js"], function () {
       require(["secondary/index"], function(){
-        require(!{JSON.stringify(getTestableModules())}, function(){
+        require(!{JSON.stringify(getTestableModules('qunit'))}, function(){
           // Run Specs?
         });
       });

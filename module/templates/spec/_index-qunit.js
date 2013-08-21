@@ -5,7 +5,7 @@
 define(function(require){
 
   var specs = {
-    'main': require('modules/<%= _.dasherize(moduleName) %>/specs/main')
+    'main': require('modules/<%= _.dasherize(moduleName) %>/specs/qunit/main')
   };
 
 });
