@@ -9,19 +9,15 @@ html
   #qunit
 
   #fixtures
-    // START: FIXTURES
-    // END: FIXTURES
+    !{getFixtures()}
 
   script(src='resources/qunit.js')
-  script(src='../../bower_components/requirejs/require.js')
+  script(src='/bower_components/requirejs/require.js')
 
   script.
-    require(["../../common/js/common.js"], function () {
+    require(["/js/common.js"], function () {
       require(["secondary/index"], function(){
-        require([
-          // START: SPECS
-          // END: SPECS
-        ], function(){
+        require(!{JSON.stringify(getTestableModules())}, function(){
           // Run Specs?
         });
       });

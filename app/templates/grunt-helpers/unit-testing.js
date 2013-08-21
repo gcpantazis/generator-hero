@@ -6,11 +6,23 @@ var jadeHelpersMain = require('./jade-helpers')();
 module.exports = function(){
 
   var getFixtures = function() {
-
+    return '';
   };
 
   var getTestableModules = function () {
 
+    var moduleDir = fs.readdirSync('app/modules'),
+      modules = [];
+
+    _.each(moduleDir, function(module){
+      var stat = fs.statSync('app/modules/' + module);
+
+      if (stat.isDirectory()) {
+        modules.push('modules/' + module + '/index');
+      }
+    })
+
+    return modules;
   };
 
   var self = {

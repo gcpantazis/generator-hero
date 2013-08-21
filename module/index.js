@@ -82,8 +82,8 @@ ModuleGenerator.prototype.app = function app() {
   this.template('_module-demo.jade', 'app/modules/' + _.dasherize(this.moduleName) + '/demo/' + _.dasherize(this.moduleName) + '-demo.jade');
   this.template('_module-data.json', 'app/modules/' + _.dasherize(this.moduleName) + '/demo/data/' + _.dasherize(this.moduleName) + '.json');
 
-  addModuleToTests(this.moduleName, 'mocha');
-  addModuleToTests(this.moduleName, 'qunit');
+  // addModuleToTests(this.moduleName, 'mocha');
+  // addModuleToTests(this.moduleName, 'qunit');
 };
 
 var addModuleToTests = function (moduleName, whichTestFramework) {

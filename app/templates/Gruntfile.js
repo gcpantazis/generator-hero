@@ -1,5 +1,8 @@
 'use strict';
 
+var fs = require('fs'),
+  _ = require('underscore');
+
 var jadeHelpers = require('./grunt-helpers/jade-helpers'),
   unitTestHelpers = require('./grunt-helpers/unit-testing');
 
@@ -50,13 +53,35 @@ module.exports = function (grunt) {
     },
 
     copy: {
-      common: {
+      commonJS: {
         files: [{
           expand: true,
-          cwd: 'app/',
-          src: ['**/*.js', '**/*.css'],
-          dest: 'build/'
+          cwd: 'app/common/js/',
+          src: ['**/*.js'],
+          dest: 'build/js'
         }]
+      },
+      moduleJS: {
+        files: (function () {
+
+          var moduleDir = fs.readdirSync('app/modules'),
+            modules = [];
+
+          _.each(moduleDir, function (module) {
+            var stat = fs.statSync('app/modules/' + module);
+
+            if (stat.isDirectory()) {
+              modules.push({
+                expand: true,
+                cwd: 'app/modules/' + module + '/js/',
+                src: ['**/*.js'],
+                dest: 'build/js/modules/' + module
+              });
+            }
+          });
+          return modules;
+        })()
+
       },
       unitTests: {
         files: [{

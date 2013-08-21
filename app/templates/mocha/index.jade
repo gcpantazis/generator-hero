@@ -10,8 +10,7 @@ html
     #mocha
 
     #fixtures
-      // START: FIXTURES
-      // END: FIXTURES
+      !{getFixtures()}
 
     script(src='lib/mocha/mocha.js')
     script.
@@ -24,15 +23,12 @@ html
     script.
       var assert = chai.assert
 
-    script(src='../../bower_components/requirejs/require.js')
+    script(src='/bower_components/requirejs/require.js')
 
     script.
-      require(["../../common/js/common.js"], function () {
+      require(["/js/common.js"], function () {
         require(["secondary/index"], function(){
-          require([
-            // START: SPECS
-            // END: SPECS
-          ], function(){
+          require(!{JSON.stringify(getTestableModules())}, function(){
             mocha.run()
           });
         });
