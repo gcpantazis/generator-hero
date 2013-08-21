@@ -1,5 +1,5 @@
 
-// <%= _.titleize(_.humanize(moduleName)) %> (<%= _.classify(moduleName) %>) Spec Index
+// <%= _.titleize(_.humanize(moduleName)) %> (<%= _.classify(moduleName) %>) qUnit Spec Index
 // --------------------------------------------
 
 define(function(require){

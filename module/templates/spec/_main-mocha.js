@@ -1,5 +1,5 @@
 
-// <%= _.titleize(_.humanize(moduleName)) %> (<%= _.classify(moduleName) %>) Main Spec
+// <%= _.titleize(_.humanize(moduleName)) %> (<%= _.classify(moduleName) %>) Main Mocha Spec
 // --------------------------------------------
 
 define(function(require){
@@ -10,10 +10,7 @@ define(function(require){
 
   var instance = new <%= _.classify(moduleName) %>($('.<%= _.dasherize(moduleName) %>'));
 
-  // describe("A suite", function() {
-  //   it("contains spec with an expectation", function() {
-  //     expect(true).toBe(true);
-  //   });
-  // });
+  // START : TESTS
+  // END : TESTS
 
 });
