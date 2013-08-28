@@ -1,8 +1,10 @@
 # generator-hero
 
+![image](https://www.codeship.io/projects/9c78edd0-f24c-0130-0c28-3e8161d0e463/status)
+
 This generator isn't necessarily meant to be *used* so much as it's meant to prove out various concepts that we'd want to splice into our own project-specific generators. It covers technical issues like Jade helper methods for wiring complex systems, data insertion (see `module` or `component` index files), and FE unit test integration.
 
-I have it set to generate both **qUnit** and **Mocha** specs, for the sake of test-driving. 
+I have it set to generate both **qUnit** and **Mocha** specs, for the sake of test-driving.
 
 ## Getting started
 - Make sure you have [yo](https://github.com/yeoman/yo) installed:
@@ -12,12 +14,12 @@ I have it set to generate both **qUnit** and **Mocha** specs, for the sake of te
 - Make a module: `yo hero:module`
 	- Select `New Module`:
 
-		> ![image](http://d.pr/i/HM6i.jpg) 
-	
-	- Fill out the details: 
-	
-		> ![image](http://d.pr/i/pKjc.jpg) 
-	
+		> ![image](http://d.pr/i/HM6i.jpg)
+
+	- Fill out the details:
+
+		> ![image](http://d.pr/i/pKjc.jpg)
+
 	- Be filled with joy, your module is stubbed out and ready to go.
 
 - Build the app with `grunt`
@@ -28,7 +30,7 @@ This generator can stub out methods, and make the basic tests to go with them fo
 
 - Run `yo hero:module` again. This time select `Add Method`:
 
-	> ![image](http://d.pr/i/HtZY.jpg) 
+	> ![image](http://d.pr/i/HtZY.jpg)
 
 - Fill out the method's basic information:
 
