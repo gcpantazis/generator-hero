@@ -2,6 +2,7 @@
 
 ![image](https://www.codeship.io/projects/9c78edd0-f24c-0130-0c28-3e8161d0e463/status)
 
+
 This generator isn't necessarily meant to be *used* so much as it's meant to prove out various concepts that we'd want to splice into our own project-specific generators. It covers technical issues like Jade helper methods for wiring complex systems, data insertion (see `module` or `component` index files), and FE unit test integration.
 
 I have it set to generate both **qUnit** and **Mocha** specs, for the sake of test-driving.
