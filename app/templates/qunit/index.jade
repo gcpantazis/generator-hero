@@ -8,8 +8,10 @@ html
 
   #qunit
 
-  #fixtures
-    !{getFixtures()}
+  #fixtures(style="display:none;")
+    each module in getTestableModules('qunit')
+      - moduleName = module.split('/')[1]
+      !{renderSingle('app/modules/'+moduleName+'/html/'+moduleName+'.jade', 'app/modules/'+moduleName+'/demo/data/'+moduleName+'.json')}
 
   script(src='resources/qunit.js')
   script(src='/bower_components/requirejs/require.js')
